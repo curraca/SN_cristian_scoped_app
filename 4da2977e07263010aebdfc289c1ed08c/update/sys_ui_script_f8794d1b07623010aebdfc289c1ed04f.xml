@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_414641_cristian.UI_Script_usage_wind</name>
+        <script><![CDATA[var x_414641_cristian = x_414641_cristian || {};
+
+x_414641_cristian.UI_Script_usage_wind = (function() {
+	"use strict";
+
+	window.setTimeout (2);
+	
+/* set your private variables and functions here. For example: 
+	var privateVar = 0; 
+	function private_function() {
+		return ++privateVar;
+	}
+*/
+
+/* Share variables between multiple UI scripts by adding them to your scope object. For example: 
+	x_414641_cristian.sharedVar = 0; 
+
+ Then access them in your scripts the same way. For example: 
+	function get_shared() {
+		return x_414641_cristian.sharedVar;
+	}
+*/
+
+	return {
+
+/* set your public API here. For example:
+		incrementAndReturnPrivateVar: function() {
+			return private_function();
+		},
+*/
+		type:  "UI_Script_usage_wind"
+	};
+})();
+]]></script>
+        <script_name>UI_Script_usage_wind</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 13:50:52</sys_created_on>
+        <sys_id>f8794d1b07623010aebdfc289c1ed04f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_414641_cristian.UI_Script_usage_wind</sys_name>
+        <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
+        <sys_update_name>sys_ui_script_f8794d1b07623010aebdfc289c1ed04f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 13:50:52</sys_updated_on>
+        <ui_type>0</ui_type>
+        <use_scoped_format>true</use_scoped_format>
+    </sys_ui_script>
+</record_update>

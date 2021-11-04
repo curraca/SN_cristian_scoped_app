@@ -1,0 +1,158 @@
+# This is a basic workflow to help you get started with Actions
+
+name: ServiceNow CI/CD Pipeline with QualityClouds LiveCheck
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    # Purpose of this job is to Apply Remote Changes for the branch triggering 
+    # the pipeline build to the Dev instance, then publish the application to 
+    # app repo using the template versioning format. 
+    name: Publish from Dev
+    runs-on: ubuntu-latest
+    # Below line can be used to set conditionals for modifying your pipeline as needed.
+    # if: ${{ github.event_name == 'pull_request'}}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: QualityClouds CI/CD BuildCheck for Servicenow
+        uses: qualityclouds/action-snow-full-scan@0.0.5
+        with:
+          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjViY2UxMjA3ZTI0MGNhYTZlZDI0OGFmZDJkMmRiNmFjYmZlMjZmMDM4YmQ3OWM3ZWE1YWJkNzhjM2FhNDhkNGFmZDZiNTU3OGVjYmUwYzM2In0.eyJhdWQiOiIyIiwianRpIjoiNWJjZTEyMDdlMjQwY2FhNmVkMjQ4YWZkMmQyZGI2YWNiZmUyNmYwMzhiZDc5YzdlYTVhYmQ3OGMzYWE0OGQ0YWZkNmI1NTc4ZWNiZTBjMzYiLCJpYXQiOjE2MjYxODM1MDEsIm5iZiI6MTYyNjE4MzUwMSwiZXhwIjoxNjU3NzE5NTAxLCJzdWIiOiI4OTQiLCJzY29wZXMiOlsibGl2ZS1jaGVjayJdfQ.ZADzHgWFiOV7jaK9J8ejCsFKC7tRAVGbkb3C_SzXFfOInf5I4DdRe-Az1rMUYT24Ms4XOuAtiyiqY8gowyrEw6Wf2JeTuTBZextY9EUn91D7ac_DKtxddxw46Fal6BUcS_U5NRC8yXY6hdJR2XDgoJaZKdjIUQNx0vZh3a-cFl0qB-QYLCKO_qSgcZtq7VmUcYWYSNmIyxaPDzqPQVDqhMzrpqJXxS0UErS-ESyZtLgA7w45G0aA-aXteI3FAUmeLcMPTIU4TR1XFfwpErxiCKcl_BWGZzQeQ4-KF1LqaUBixf206-XAfciHGuupo9DkNsKwOszYY3R2AQK8fMnBxEX6YCDTGvuqZGOL5urzNYlDVK6fDs_ZEvtZ16obvItIU7eK-aKMoKySv3qFk2Y5cuPvUeXyeEWl_fbckLLFEO8u0oocZqWDe06OI09p-Cl5P75nznsukK1AijWS4WQVdOW6W1NtCY8i_pWxqoxpCELdNvctmt4DSM9ukcVlbprE9vitJ2wHoZ-uHZv4pbs2mWT9OaDmRy1lpQ2JgCKJNaEhRPBESxnOxeHWzNa3hNXWhkwISzgVu9q3HaVUVFf4fLZe8Zut8yzW_ZwoDLlaihYZmmtU3zrRbY9r8lr2a6mOlRrpUf2MRe7Et4zxkUMxWPM-_CBrZyZOY5KpK_a9xaU'
+          instance_url: 'https://ven02284.service-now.com'
+          api_url: "https://api-development.qualityclouds.com"
+          
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      
+      - name: Slack Notification
+        if: ${{ failure() }}
+        uses: slackapi/slack-github-action@v1.15.0
+        with:
+          channel-id: 'C010SJZGLR1'  # Slack channel id to post message
+          slack-message: 'Application deployment stopped for ${{ steps.extract_branch.outputs.branch }} due to Quality Gate FAIL'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          
+      - name: ServiceNow CI/CD Apply Changes
+        uses: ServiceNow/sncicd-apply-changes@1.0.0
+        env:
+          snowUsername: ${{ secrets.SN_USERNAME }}
+          snowPassword: ${{ secrets.SN_PASSWORD }}
+          snowSourceInstance: ${{ secrets.SN_DEV_INSTANCE }}
+          appSysID: ${{ secrets.SN_APP_SYSID }}
+
+      - name: ServiceNow CI/CD Publish App
+        id: publish_app
+        uses: ServiceNow/sncicd-publish-app@1.0.0
+        with:
+          versionTemplate: 1.1
+          versionFormat: template
+          # Optional, add +X to version number. Default: 1 
+          # incrementBy: X
+        env:
+          snowUsername: ${{ secrets.SN_USERNAME }}
+          snowPassword: ${{ secrets.SN_PASSWORD }}
+          snowSourceInstance: ${{ secrets.SN_DEV_INSTANCE }}
+          appSysID: ${{ secrets.SN_APP_SYSID }}
+          
+    # This is required to pass the version number output from Publish App 
+    # to the input for Install App in the next job! This is because the jobs 
+    # run on different Linux instances, so without this Install App won't know
+    # what to install.
+    outputs:
+      publishversion: ${{ steps.publish_app.outputs.newVersion }}
+
+  test:
+    # Purpose of this job is to Install App from the app repo for the version 
+    # published in the build job to a Test instance, then run an ATF Test Suite 
+    # associated with the app. If Test Suite fails, the app should be Rolled Back 
+    # to clean up the persistent Test environment. 
+    needs: build
+    name: Run ATF in Test
+    runs-on: ubuntu-latest
+    # Below line can be used to set conditionals for modifying your pipeline as needed.
+    # if: ${{ github.event_name == 'pull_request'}}
+    
+    steps:
+
+      - name: ServiceNow CI/CD Install App
+        id: install_app
+        uses: ServiceNow/sncicd-install-app@1.0.0
+        with:
+          version: ${{ needs.build.outputs.publishversion }}
+          # Only applicable if Application Customization is active. 
+          # Version of the base application on which to apply the customizations
+          baseAppVersion: '1.2.3'
+          # Only applicable if Application Customization is active and the associated 
+          # application is a higher version than the currently installed version
+          # Default: false
+          autoUpgradeBaseApp: true
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowInstallInstance: ${{ secrets.SN_TEST_INSTANCE }}
+          appSysID: ${{ secrets.SN_APP_SYSID }}
+
+      - name: ServiceNow CI/CD Run ATF Test Suite
+        uses: ServiceNow/sncicd-tests-run@1.0.0
+        with:
+          testSuiteSysId: ${{ secrets.SN_ATFTESTSUITE_SYSID }}
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowInstallInstance: ${{ secrets.SN_TEST_INSTANCE }}
+
+      - name: ServiceNow CI/CD Rollback App
+        if: ${{ failure() && steps.install_app.outputs.rollbackVersion }}
+        uses: ServiceNow/sncicd-rollback-app@1.0.0
+        with:
+          version: ${{steps.install_app.outputs.rollbackVersion}}
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowInstallInstance: ${{ secrets.SN_TEST_INSTANCE }}
+          appSysID: ${{ secrets.SN_APP_SYSID }}
+
+    # This is required to pass the version number output from Publish App 
+    # to the input for Install App in the next job! This is because the jobs 
+    # run on different Linux instances, so without this Install App won't know
+    # what to install.
+    outputs:
+      publishversion: ${{ needs.build.outputs.publishversion }}
+
+  deployprod:
+    # Purpose of this job is to Install App to a Prod instance. This should only 
+    # trigger if the feature branch has been merged to master after a successfully 
+    # completed pull request, hence the conditional for push to master. In other words,
+    # the first two jobs run on CI, then all three jobs run on CD. 
+    needs: test
+    name: Deploy to Prod
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    steps:
+    
+      - name: ServiceNow CI/CD Install App
+        id: install_app_prod
+        uses: ServiceNow/sncicd-install-app@1.0.0
+        with:
+          version: ${{ needs.test.outputs.publishversion }}
+          # Only applicable if Application Customization is active. 
+          # Version of the base application on which to apply the customizations
+          baseAppVersion: '1.2.3'
+          # Only applicable if Application Customization is active and the associated 
+          # application is a higher version than the currently installed version
+          # Default: false
+          autoUpgradeBaseApp: true
+        env:
+          nowUsername: ${{ secrets.SN_USERNAME }}
+          nowPassword: ${{ secrets.SN_PASSWORD }}
+          nowInstallInstance: ${{ secrets.SN_PROD_INSTANCE }}
+          appSysID: ${{ secrets.SN_APP_SYSID }}

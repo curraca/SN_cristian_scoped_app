@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="change_request" label="cristianTable" max_length="40" name="x_414641_cristian_cristiantable" type="collection"/>
+</database>

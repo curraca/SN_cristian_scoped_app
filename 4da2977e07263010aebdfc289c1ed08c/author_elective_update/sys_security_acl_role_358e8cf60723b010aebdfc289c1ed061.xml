@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-04 13:18:27</sys_created_on>
+        <sys_id>358e8cf60723b010aebdfc289c1ed061</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_414641_cristian_cristiantable.x_414641_cristian.cristiantable_user</sys_name>
+        <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
+        <sys_security_acl display_value="x_414641_cristian_cristiantable">658e8cf60723b010aebdfc289c1ed05c</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_358e8cf60723b010aebdfc289c1ed061</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-04 13:18:27</sys_updated_on>
+        <sys_user_role display_value="x_414641_cristian.cristiantable_user" name="x_414641_cristian.cristiantable_user">688e4c760723b010aebdfc289c1ed0cc</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</application>
+        <file_path/>
+        <instance_id>93b7b431dba0fb0042b321c4059619c8</instance_id>
+        <instance_name>dev78278</instance_name>
+        <name>sys_security_acl_role_358e8cf60723b010aebdfc289c1ed061</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-11-04 13:18:27</sys_created_on><sys_id>358e8cf60723b010aebdfc289c1ed061</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_414641_cristian_cristiantable.x_414641_cristian.cristiantable_user</sys_name><sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package><sys_policy/><sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope><sys_security_acl display_value="x_414641_cristian_cristiantable">658e8cf60723b010aebdfc289c1ed05c</sys_security_acl><sys_update_name>sys_security_acl_role_358e8cf60723b010aebdfc289c1ed061</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-11-04 13:18:27</sys_updated_on><sys_user_role display_value="x_414641_cristian.cristiantable_user" name="x_414641_cristian.cristiantable_user">688e4c760723b010aebdfc289c1ed0cc</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>943152733</payload_hash>
+        <record_name>x_414641_cristian_cristiantable.x_414641_cristian.cristiantable_user</record_name>
+        <reverted_from/>
+        <source>4d3098a807000110aebdfc289c1ed05b</source>
+        <source_table>sys_update_set</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-22 10:10:56</sys_created_on>
+        <sys_id>6630d8a807000110aebdfc289c1ed05e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d47208fd20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-22 10:10:56</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>f58e8cf6d123b010764c478439b36a63</update_guid>
+        <update_guid_history>f58e8cf6d123b010764c478439b36a63:943152733,9310d4a8eb00011082fe926b6de65c3c:1965875667,f58e8cf6d123b010764c478439b36a63:943152733</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_414641_cristian_cristiantable.x_414641_cristian.cristiantable_user">a6f9b0a807800110aebdfc289c1ed038</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-22 13:13:20</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0032d01c2dd0458d852472bb323bcf51</sys_id>
+        <sys_metadata>358e8cf60723b010aebdfc289c1ed061</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_414641_cristian_cristiantable.x_414641_cristian.cristiantable_user</sys_name>
+        <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
+        <sys_parent display_value="">658e8cf60723b010aebdfc289c1ed05c</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
+        <sys_scope_delete display_value="">d5d3dbe13f544b789e34014e753f7e51</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_358e8cf60723b010aebdfc289c1ed061</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_358e8cf60723b010aebdfc289c1ed061">6630d8a807000110aebdfc289c1ed05e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-22 13:13:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

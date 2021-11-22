@@ -18,7 +18,7 @@
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>BR</name>
+        <name>CRTest</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -30,27 +30,27 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
-	religion = "H";
-	r = "d224f41b07223010aebdfc289c1ed0c7";
 
+	ss  ="3b2ea86007800110aebdfc289c1ed06d";
+	
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-09-17 12:18:26</sys_created_on>
+        <sys_created_on>2021-11-22 12:23:04</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>d224f41b07223010aebdfc289c1ed0c7</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>BR</sys_name>
+        <sys_id>3b2ea86007800110aebdfc289c1ed06d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CRTest</sys_name>
         <sys_overrides/>
         <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
-        <sys_update_name>sys_script_d224f41b07223010aebdfc289c1ed0c7</sys_update_name>
+        <sys_update_name>sys_script_3b2ea86007800110aebdfc289c1ed06d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-22 10:06:24</sys_updated_on>
+        <sys_updated_on>2021-11-22 12:23:04</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=d224f41b07223010aebdfc289c1ed0c7"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=3b2ea86007800110aebdfc289c1ed06d"/>
 </record_update>

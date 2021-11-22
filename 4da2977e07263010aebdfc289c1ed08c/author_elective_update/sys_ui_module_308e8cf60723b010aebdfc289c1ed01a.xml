@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application display_value="cristianTable">348e8cf60723b010aebdfc289c1ed017</application>
+        <filter/>
+        <name>cristianTables</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_414641_cristian.cristiantable_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-04 13:18:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>308e8cf60723b010aebdfc289c1ed01a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cristianTables</sys_name>
+        <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
+        <sys_update_name>sys_ui_module_308e8cf60723b010aebdfc289c1ed01a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-04 13:18:23</sys_updated_on>
+        <table>x_414641_cristian_cristiantable</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</application>
+        <file_path/>
+        <instance_id>93b7b431dba0fb0042b321c4059619c8</instance_id>
+        <instance_name>dev78278</instance_name>
+        <name>sys_ui_module_308e8cf60723b010aebdfc289c1ed01a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module"><sys_ui_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="cristianTable">348e8cf60723b010aebdfc289c1ed017</application><filter/><name>cristianTables</name><order/><path/><path_relative_to_root>false</path_relative_to_root><roles>x_414641_cristian.cristiantable_user</roles><sys_class_name>sys_ui_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-11-04 13:18:23</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>308e8cf60723b010aebdfc289c1ed01a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>cristianTables</sys_name><sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package><sys_policy/><sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope><sys_update_name>sys_ui_module_308e8cf60723b010aebdfc289c1ed01a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-11-04 13:18:23</sys_updated_on><table>x_414641_cristian_cristiantable</table><uncancelable>false</uncancelable><view_name/></sys_ui_module></record_update>]]></payload>
+        <payload_hash>703563003</payload_hash>
+        <record_name>cristianTables</record_name>
+        <reverted_from/>
+        <source>4d3098a807000110aebdfc289c1ed05b</source>
+        <source_table>sys_update_set</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-22 10:10:56</sys_created_on>
+        <sys_id>e630d8a807000110aebdfc289c1ed066</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d4720908f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-22 10:10:56</sys_updated_on>
+        <type>Module</type>
+        <update_guid>f08e8cf67a23b010ebd669a42ce61f1c</update_guid>
+        <update_guid_history>f08e8cf67a23b010ebd669a42ce61f1c:703563003,4b10d4a8f100011046ff09d738aba216:1384002264,f08e8cf67a23b010ebd669a42ce61f1c:703563003</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-22 13:13:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>01b244289a9645da82ce4da0eeb61b84</sys_id>
+        <sys_metadata>308e8cf60723b010aebdfc289c1ed01a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cristianTables</sys_name>
+        <sys_package display_value="Cristian_app" source="x_414641_cristian">4da2977e07263010aebdfc289c1ed08c</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Cristian_app">4da2977e07263010aebdfc289c1ed08c</sys_scope>
+        <sys_scope_delete display_value="">d5d3dbe13f544b789e34014e753f7e51</sys_scope_delete>
+        <sys_update_name>sys_ui_module_308e8cf60723b010aebdfc289c1ed01a</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_308e8cf60723b010aebdfc289c1ed01a">e630d8a807000110aebdfc289c1ed066</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-22 13:13:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
